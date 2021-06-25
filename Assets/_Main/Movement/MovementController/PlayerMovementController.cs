@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
 namespace EdwinGameDev.Movement
 {
@@ -7,7 +8,7 @@ namespace EdwinGameDev.Movement
         private void Awake()
         {
             movement = new MoveWithBounds(gameBounds);
-            inputProcessor = new KeyboardMovementProcessor(horizontalMovement, verticalMovement);
+            inputProcessor = new KeyboardMovementProcessor(movementAxis);
         }
     }
 }

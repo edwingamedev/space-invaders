@@ -5,24 +5,30 @@ namespace EdwinGameDev.Movement
 {
     public abstract class AMovementController : MonoBehaviour
     {
+        public AMovementController()
+        {
+            movementAxis = new MovementAxis();
+        }
+
         protected IMovement movement;
         protected IMovementProcessor inputProcessor;
-        
+
         [SerializeField] protected GameBounds gameBounds;
 
         [SerializeField] protected float moveSpeed;
 
-        [SerializeField] protected bool horizontalMovement;
-        [SerializeField] protected bool verticalMovement;
-        
+        public MovementAxis movementAxis;
+
         [SerializeField] protected bool canMove;
 
-        public void Move(float deltaTime)
-        {
-            if (canMove)
-            {
-                movement.Move(transform, inputProcessor.MovementVector(deltaTime * moveSpeed));
-            }
-        }
+        public bool IsValidMovement(float deltaTime) => movement.IsValidMovement(transform, inputProcessor.MovementVector(deltaTime * moveSpeed));
+        public void Move(float deltaTime) => movement.Move(transform, inputProcessor.MovementVector(deltaTime * moveSpeed));
+    }
+
+    [System.Serializable]
+    public class MovementAxis
+    {
+        public bool horizontalMovement;
+        public bool verticalMovement;
     }
 }

@@ -4,13 +4,11 @@ namespace EdwinGameDev.Movement
 {
     public class KeyboardMovementProcessor : IMovementProcessor
     {
-        private bool horizontalMovement;
-        private bool verticalMovement;
+        private MovementAxis movementAxis;
 
-        public KeyboardMovementProcessor(bool horizontalMovement, bool verticalMovement)
+        public KeyboardMovementProcessor(MovementAxis movementAxis)
         {
-            this.horizontalMovement = horizontalMovement;
-            this.verticalMovement = verticalMovement;
+            this.movementAxis = movementAxis;
         }
 
         public Vector2 MovementVector(float moveSpeed)
@@ -20,12 +18,12 @@ namespace EdwinGameDev.Movement
 
         private float VerticalMovement(float moveSpeed)
         {
-            return verticalMovement ? Input.GetAxisRaw("Vertical") * moveSpeed : 0;
+            return movementAxis.verticalMovement ? Input.GetAxisRaw("Vertical") * moveSpeed : 0;
         }
 
         private float HorizontalMovement(float moveSpeed)
         {
-            return horizontalMovement ? Input.GetAxisRaw("Horizontal") * moveSpeed : 0;
+            return movementAxis.horizontalMovement ? Input.GetAxisRaw("Horizontal") * moveSpeed : 0;
         }
     }
 }

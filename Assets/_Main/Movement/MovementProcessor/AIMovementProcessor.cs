@@ -4,13 +4,11 @@ namespace EdwinGameDev.Movement
 {
     public class AIMovementProcessor : IMovementProcessor
     {
-        private bool horizontalMovement;
-        private bool verticalMovement;
+        private MovementAxis movementAxis;
 
-        public AIMovementProcessor(bool horizontalMovement, bool verticalMovement)
+        public AIMovementProcessor(MovementAxis movementAxis)
         {
-            this.horizontalMovement = horizontalMovement;
-            this.verticalMovement = verticalMovement;
+            this.movementAxis = movementAxis;
         }
 
         public Vector2 MovementVector(float moveSpeed)
@@ -20,12 +18,12 @@ namespace EdwinGameDev.Movement
 
         private float VerticalMovement(float moveSpeed)
         {
-            return verticalMovement ? moveSpeed : 0;
+            return movementAxis.verticalMovement ? moveSpeed : 0;
         }
 
         private float HorizontalMovement(float moveSpeed)
         {
-            return horizontalMovement ? moveSpeed : 0;
+            return movementAxis.horizontalMovement ? moveSpeed : 0;
         }
     }
 }
