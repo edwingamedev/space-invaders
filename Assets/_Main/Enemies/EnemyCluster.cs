@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,24 +8,51 @@ namespace EdwinGameDev.Enemies
     public class EnemyCluster : MonoBehaviour
     {
         public List<Enemy> enemies;
-        public bool canMove;
+        private bool canMove;
 
-        public void StartMovement()
+        private Action onReachedBorder;
+
+        public void SetEnemyBehaviourOnReachBorder(Action OnReachedBorder)
         {
-            canMove = true;
+            onReachedBorder = OnReachedBorder;
         }
 
-        private void Update()
+        public void MoveDown(float moveSpeed)
         {
-            if (canMove)
-                Move(Time.deltaTime);
+            foreach (var enemy in enemies)
+            {
+                enemy.movementController.movementAxis.verticalMovement = true;
+                enemy.movementController.movementAxis.horizontalMovement = false;
+
+                enemy.movementController.Move(moveSpeed);
+
+                enemy.movementController.movementAxis.verticalMovement = false;
+                enemy.movementController.movementAxis.horizontalMovement = true;
+            }
         }
 
         public void Move(float deltaTime)
         {
+            //Validate movement
             foreach (var enemy in enemies)
             {
-                enemy.movementController.Move(deltaTime);
+                canMove = enemy.movementController.IsValidMovement(deltaTime);
+
+                if (!canMove)
+                    break;
+            }
+
+            // Move
+            if (canMove)
+            {
+                foreach (var enemy in enemies)
+                {
+                    enemy.movementController.Move(deltaTime);
+                }
+            }
+            else
+            {
+                onReachedBorder?.Invoke();
             }
         }
     }

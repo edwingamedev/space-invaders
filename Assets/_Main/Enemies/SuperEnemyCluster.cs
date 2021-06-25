@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,6 +10,7 @@ namespace EdwinGameDev.Enemies
         [SerializeField] private List<EnemyCluster> enemyClusters;
         [SerializeField] private bool canMove;
         [SerializeField] private float moveSpeed;
+        [SerializeField] private float moveDown;
 
         [SerializeField] private float movementDelay;
         private float nextMovement;
@@ -17,11 +19,27 @@ namespace EdwinGameDev.Enemies
         // Start is called before the first frame update
         void Start()
         {
+            SetNextMovement();
 
+            foreach (var item in enemyClusters)
+            {
+                item.SetEnemyBehaviourOnReachBorder(EnemyReachedBorder);
+            }
+        }
+
+        private void EnemyReachedBorder()
+        {
+            moveSpeed *= -1;
+            currentIndex = -1;
+
+            foreach (var item in enemyClusters)
+            {
+                item.MoveDown(moveDown);
+            }
         }
 
         // Update is called once per frame
-        void Update()
+        void FixedUpdate()
         {
             if (!canMove)
                 return;
@@ -29,20 +47,23 @@ namespace EdwinGameDev.Enemies
 
             if (Time.time > nextMovement)
             {
-                nextMovement = Time.time + movementDelay;
+                SetNextMovement();
 
-                Debug.Log("Timer");
+                enemyClusters[currentIndex].Move(Time.deltaTime * moveSpeed);
 
-
-                enemyClusters[currentIndex].StartMovement();
                 currentIndex++;
 
                 if (currentIndex >= enemyClusters.Count)
                 {
-                    canMove = false;
+                    //canMove = false;
                     currentIndex = 0;
                 }
             }
+        }
+
+        private void SetNextMovement()
+        {
+            nextMovement = Time.time + movementDelay;
         }
     }
 }

@@ -12,14 +12,14 @@ namespace EdwinGameDev.Enemies
     {
         [SerializeField] private int health;
         [SerializeField] private int maxHealth;
-        public AMovementController movementController;
+        public AIMovementController movementController;
 
         private void Awake()
         {
             gameObject.tag = Tags.ENEMY;
 
             Setup();
-        }
+        }        
 
         private void Setup()
         {
