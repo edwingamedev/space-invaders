@@ -197,9 +197,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1752223
 MonoBehaviour:
@@ -275,9 +272,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &4327515
 MonoBehaviour:
@@ -563,9 +557,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &75484092
 MonoBehaviour:
@@ -978,9 +969,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &203576727
 MonoBehaviour:
@@ -1250,9 +1238,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &252103496
 MonoBehaviour:
@@ -1317,9 +1302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &283351209
 BoxCollider2D:
@@ -1436,9 +1418,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &303251493
 MonoBehaviour:
@@ -1611,9 +1590,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &327947309
 MonoBehaviour:
@@ -2032,9 +2008,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &374125794
 MonoBehaviour:
@@ -2125,9 +2098,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &408918934
 MonoBehaviour:
@@ -2300,9 +2270,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &453095271
 MonoBehaviour:
@@ -2595,7 +2562,7 @@ MonoBehaviour:
   - {fileID: 167974043}
   canMove: 1
   moveSpeed: 5
-  moveDown: -0.25
+  moveDown: 0.25
   movementDelay: 0.1
 --- !u!4 &525946630
 Transform:
@@ -2659,9 +2626,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &535101089
 BoxCollider2D:
@@ -2778,9 +2742,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &556316815
 MonoBehaviour:
@@ -2953,9 +2914,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &577139782
 MonoBehaviour:
@@ -3020,9 +2978,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &614646617
 BoxCollider2D:
@@ -3139,9 +3094,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &624582296
 MonoBehaviour:
@@ -3370,9 +3322,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &727607000
 BoxCollider2D:
@@ -3556,9 +3505,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &742446334
 MonoBehaviour:
@@ -3910,9 +3856,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &811265389
 MonoBehaviour:
@@ -4003,9 +3946,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &821172623
 MonoBehaviour:
@@ -4096,9 +4036,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &821475523
 MonoBehaviour:
@@ -4174,9 +4111,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &902967734
 MonoBehaviour:
@@ -4368,9 +4302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &956093637
 BoxCollider2D:
@@ -4625,9 +4556,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &991169050
 BoxCollider2D:
@@ -4882,9 +4810,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1032695695
 BoxCollider2D:
@@ -5032,9 +4957,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1065813896
 MonoBehaviour:
@@ -5099,9 +5021,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1066609929
 BoxCollider2D:
@@ -5367,9 +5286,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1141048211
 MonoBehaviour:
@@ -5819,9 +5735,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!1 &1227978639
 GameObject:
@@ -5979,9 +5892,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1247060617
 MonoBehaviour:
@@ -6072,9 +5982,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1275346927
 MonoBehaviour:
@@ -6221,9 +6128,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1300992470
 BoxCollider2D:
@@ -6504,9 +6408,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1329016002
 MonoBehaviour:
@@ -6667,9 +6568,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 5
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!50 &1398340910
 Rigidbody2D:
@@ -6848,9 +6746,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1485232814
 BoxCollider2D:
@@ -7099,9 +6994,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1504401300
 BoxCollider2D:
@@ -7218,9 +7110,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1504897943
 MonoBehaviour:
@@ -7285,9 +7174,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1537022074
 BoxCollider2D:
@@ -7486,9 +7372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1570975454
 MonoBehaviour:
@@ -7615,9 +7498,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 7
-  movementAxis:
-    horizontalMovement: 0
-    verticalMovement: 0
   canMove: 1
 --- !u!1 &1652045840
 GameObject:
@@ -7831,9 +7711,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1688263729
 BoxCollider2D:
@@ -7950,9 +7827,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1690175107
 MonoBehaviour:
@@ -8017,9 +7891,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1717169502
 BoxCollider2D:
@@ -8285,9 +8156,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1760976280
 MonoBehaviour:
@@ -8367,9 +8235,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1771959839
 BoxCollider2D:
@@ -8568,9 +8433,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1802185674
 MonoBehaviour:
@@ -8661,9 +8523,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &1883573020
 MonoBehaviour:
@@ -8892,9 +8751,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!61 &1997947605
 BoxCollider2D:
@@ -9093,9 +8949,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &2034999045
 MonoBehaviour:
@@ -9514,9 +9367,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   moveSpeed: 1
-  movementAxis:
-    horizontalMovement: 1
-    verticalMovement: 0
   canMove: 1
 --- !u!114 &2120203138
 MonoBehaviour:

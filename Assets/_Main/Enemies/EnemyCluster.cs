@@ -21,13 +21,7 @@ namespace EdwinGameDev.Enemies
         {
             foreach (var enemy in enemies)
             {
-                enemy.movementController.movementAxis.verticalMovement = true;
-                enemy.movementController.movementAxis.horizontalMovement = false;
-
-                enemy.movementController.Move(moveSpeed);
-
-                enemy.movementController.movementAxis.verticalMovement = false;
-                enemy.movementController.movementAxis.horizontalMovement = true;
+                enemy.movementController.Move(moveSpeed * Vector2.down);
             }
         }
 
@@ -36,7 +30,7 @@ namespace EdwinGameDev.Enemies
             //Validate movement
             foreach (var enemy in enemies)
             {
-                canMove = enemy.movementController.IsValidMovement(deltaTime);
+                canMove = enemy.movementController.IsValidMovement(deltaTime * Vector2.right);
 
                 if (!canMove)
                     break;
@@ -47,7 +41,7 @@ namespace EdwinGameDev.Enemies
             {
                 foreach (var enemy in enemies)
                 {
-                    enemy.movementController.Move(deltaTime);
+                    enemy.movementController.Move(deltaTime * Vector2.right);
                 }
             }
             else

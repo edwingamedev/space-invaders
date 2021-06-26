@@ -17,7 +17,7 @@ namespace EdwinGameDev.Projectile
 
         private void Update()
         {
-            movementController?.Move(Time.deltaTime);
+            movementController?.Move(Vector2.up * Time.deltaTime);
         }
 
         public void ApplyDamage(IDamageable damageable)

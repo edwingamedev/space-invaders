@@ -19,12 +19,12 @@ namespace EdwinGameDev.Player
 
         private void Update()
         {
-            movementController?.Move(Time.deltaTime);
+            movementController?.Move(Time.deltaTime * Vector2.right);
         }
 
         public void ReceiveDamage(int value)
         {
-            Debug.Log("player Damage: "+value);
+            Debug.Log("player Damage: " + value);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
