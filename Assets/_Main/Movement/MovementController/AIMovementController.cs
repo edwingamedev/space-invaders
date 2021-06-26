@@ -1,9 +1,10 @@
-﻿using System;
+﻿using EdwinGameDev.Enemies;
+using System;
 using UnityEngine;
 
 namespace EdwinGameDev.Movement
 {
-    public class AIMovementController : AMovementController
+    public class AIMovementController : AMovementController, IMovable
     {
         public override bool IsValidMovement(Vector2 movementVector)
         {

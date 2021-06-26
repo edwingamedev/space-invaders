@@ -4,7 +4,6 @@ namespace EdwinGameDev.Movement
 {
     public class KeyboardMovementProcessor : IMovementProcessor
     {
-
         public Vector2 MovementVector(Vector2 movementVector)
         {
             return new Vector2(HorizontalMovement(movementVector.x), VerticalMovement(movementVector.y));

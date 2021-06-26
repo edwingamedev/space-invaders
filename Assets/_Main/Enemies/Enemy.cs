@@ -8,18 +8,20 @@ using UnityEngine;
 
 namespace EdwinGameDev.Enemies
 {
-    public class Enemy : MonoBehaviour, IDamageable
+    public class Enemy : MonoBehaviour, IDamageable, IEnemy
     {
         [SerializeField] private int health;
         [SerializeField] private int maxHealth;
-        public AIMovementController movementController;
+        [SerializeField] private AIMovementController movementController;
+
+        public IMovable movable => movementController;
 
         private void Awake()
         {
             gameObject.tag = Tags.ENEMY;
 
             Setup();
-        }        
+        }
 
         private void Setup()
         {

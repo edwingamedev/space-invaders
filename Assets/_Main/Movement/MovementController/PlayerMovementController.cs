@@ -14,7 +14,7 @@ namespace EdwinGameDev.Movement
 
         public override void Move(Vector2 movementVector)
         {
-            movement.Move(transform, inputProcessor.MovementVector(movementVector));
+            movement.Move(transform, inputProcessor.MovementVector(movementVector * moveSpeed));
         }
 
         private void Awake()
