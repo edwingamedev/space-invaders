@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using EdwinGameDev.Projectile;
+using System;
+using UnityEngine;
 
 namespace EdwinGameDev.Weapons
 {
@@ -6,10 +8,18 @@ namespace EdwinGameDev.Weapons
     {
         [SerializeField] private Transform shootingPoint;
         private IWeapon weapon;
+        private bool canShoot = true;
 
         private void Start()
         {
             weapon = new SingleBulletGun(this);
+        }
+
+        private void EnableShoot()
+        {
+            Debug.Log("Enable shoot");
+
+            canShoot = true;
         }
 
         public override IWeapon GetWeapon()
@@ -19,8 +29,21 @@ namespace EdwinGameDev.Weapons
 
         public override void Shoot()
         {
-            if (Input.GetButtonDown("Jump"))
+            if (canShoot && Input.GetButtonDown("Jump"))
+            {
+                canShoot = false;
+
                 ShootFromPosition(shootingPoint);
+            }
+
+        }
+
+        public override void ReceiveNotification(ISubject subject)
+        {
+            if ((subject as IProjectile) != null)
+            {
+                EnableShoot();
+            }
         }
     }
 }
