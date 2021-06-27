@@ -50,7 +50,7 @@ namespace EdwinGameDev.Enemies
         {
             if (col.CompareTag(Tags.BULLET))
             {
-                col.GetComponent<IBullet>().ApplyDamage(this);
+                col.GetComponent<IProjectile>().ApplyDamage(this);
             }
         }
     }

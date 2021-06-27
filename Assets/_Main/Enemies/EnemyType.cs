@@ -4,6 +4,7 @@
     {
         alien01,
         alien02,
-        alien03
+        alien03,
+        alienGigante
     }
 }

@@ -1,6 +1,6 @@
 ﻿namespace EdwinGameDev.Projectile
 {
-    public interface IBullet
+    public interface IProjectile
     {
         void ApplyDamage(IDamageable damageable);
     }

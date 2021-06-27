@@ -12,7 +12,7 @@ namespace EdwinGameDev.Movement
 
         [SerializeField] protected float moveSpeed;
 
-        [SerializeField] protected bool canMove;
+        public bool canMove;
 
         public abstract bool IsValidMovement(Vector2 movementVector);
         public abstract void Move(Vector2 movementVector);

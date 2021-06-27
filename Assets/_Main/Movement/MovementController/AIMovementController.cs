@@ -8,12 +8,13 @@ namespace EdwinGameDev.Movement
     {
         public override bool IsValidMovement(Vector2 movementVector)
         {
-            return movement.IsValidMovement(transform, movementVector);
+            return movement.IsValidMovement(transform, movementVector * moveSpeed);
         }
 
         public override void Move(Vector2 movementVector)
-        {            
-            movement.Move(transform, movementVector);
+        {
+            if (canMove)
+                movement.Move(transform, movementVector * moveSpeed);
         }
 
         private void Awake()

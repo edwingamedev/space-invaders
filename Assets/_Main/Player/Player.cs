@@ -1,6 +1,7 @@
 using EdwinGameDev.Movement;
 using EdwinGameDev.Projectile;
 using EdwinGameDev.Settings;
+using EdwinGameDev.Weapons;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -11,6 +12,7 @@ namespace EdwinGameDev.Player
     public class Player : MonoBehaviour, IDamageable
     {
         [SerializeField] private AMovementController movementController;
+        [SerializeField] private WeaponHolder weapons;
 
         private void Awake()
         {
@@ -20,6 +22,7 @@ namespace EdwinGameDev.Player
         private void Update()
         {
             movementController?.Move(Time.deltaTime * Vector2.right);
+            weapons?.Shoot();
         }
 
         public void ReceiveDamage(int value)
@@ -31,7 +34,7 @@ namespace EdwinGameDev.Player
         {
             if (col.CompareTag(Tags.BULLET))
             {
-                col.GetComponent<IBullet>().ApplyDamage(this);
+                col.GetComponent<IProjectile>().ApplyDamage(this);
             }
         }
     }
