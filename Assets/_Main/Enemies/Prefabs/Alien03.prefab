@@ -129,7 +129,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   health: 0
-  maxHealth: 3
+  maxHealth: 1
   movementController: {fileID: 8203425764267837402}
 --- !u!114 &8203425764267837402
 MonoBehaviour:

@@ -29,9 +29,7 @@ namespace EdwinGameDev.Enemies
         }
 
         public void ReceiveDamage(int value)
-        {
-            Debug.Log("Enemy Damage: " + value);
-
+        {            
             if (health > 0)
                 health -= value;
 
@@ -43,7 +41,7 @@ namespace EdwinGameDev.Enemies
 
         private void Die()
         {
-            Destroy(gameObject);
+            gameObject.SetActive(false);
         }
 
         private void OnTriggerEnter2D(Collider2D col)
