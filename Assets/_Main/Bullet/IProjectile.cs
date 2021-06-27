@@ -1,4 +1,6 @@
-﻿namespace EdwinGameDev.Projectile
+﻿using System;
+
+namespace EdwinGameDev.Projectile
 {
     public interface IProjectile
     {

@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletStatus:
-    damage: 0
+    damage: 1
   movementController: {fileID: 6370079305199211731}
 --- !u!114 &6370079305199211731
 MonoBehaviour:
@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
-  moveSpeed: 7
+  moveSpeed: 10
   canMove: 1
 --- !u!61 &6370079305199211727
 BoxCollider2D:
