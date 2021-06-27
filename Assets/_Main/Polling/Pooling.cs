@@ -10,7 +10,7 @@ namespace EdwinGameDev.Weapons
     {
         private List<IPool> objectPool;
         private Transform poolHolder;
-        private GameObject goPrefab;
+        private IPool poolObject;
         private int poolSize;
 
         void Awake()
@@ -26,10 +26,10 @@ namespace EdwinGameDev.Weapons
             objectPool = new List<IPool>();
         }
 
-        public void CreatePool(GameObject go, int amount)
+        public void CreatePool(IPool go, int amount)
         {
             // Assign the gameobject of the pool and the size of the pool
-            goPrefab = go;
+            poolObject = go;
             poolSize = 0;
 
             for (int i = 0; i < amount; i++)
@@ -42,7 +42,7 @@ namespace EdwinGameDev.Weapons
         private void AddToThePool()
         {
             // Create a new instance
-            GameObject obj = Instantiate(goPrefab, poolHolder);
+            GameObject obj = Instantiate(poolObject.GetObject(), poolHolder);
 
             // Add to the respective pool
             IPool ip = obj.GetComponent<IPool>();
@@ -55,16 +55,16 @@ namespace EdwinGameDev.Weapons
             poolSize++;
         }
 
-        public GameObject ExtendPool()
+        public IPool ExtendPool()
         {
             // Add to the pool
             AddToThePool();
 
             // Get last object of the pool
-            return objectPool[poolSize - 1].GetObject();
+            return objectPool[poolSize - 1];
         }
 
-        public GameObject GetFromPool()
+        public IPool GetFromPool()
         {
             for (int i = 0; i < objectPool.Count; i++)
             {
@@ -74,7 +74,7 @@ namespace EdwinGameDev.Weapons
                     //set it to active
                     objectPool[i].EnableObject();
 
-                    return objectPool[i].GetObject();
+                    return objectPool[i];
                 }
             }
 
