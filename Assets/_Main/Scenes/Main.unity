@@ -437,6 +437,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 491502778}
     m_Modifications:
+    - target: {fileID: 6901120121036235968, guid: 30755ad14e7f75741a8636219c3c7e01, type: 3}
+      propertyPath: shootingPoint
+      value: 
+      objectReference: {fileID: 872164615}
     - target: {fileID: 6901120121036235974, guid: 30755ad14e7f75741a8636219c3c7e01, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -487,6 +491,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 30755ad14e7f75741a8636219c3c7e01, type: 3}
+--- !u!4 &872164615 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4345872805579825311, guid: 30755ad14e7f75741a8636219c3c7e01, type: 3}
+  m_PrefabInstance: {fileID: 713959903}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &922504471
 GameObject:
   m_ObjectHideFlags: 0

@@ -52,7 +52,7 @@ namespace EdwinGameDev.Movement
 
             for (int i = 0; i < rows; i++)
             {
-                canMove = enemies[i, rowToMove].movable.IsValidMovement(deltaTime * Vector2.right);
+                canMove = enemies[i, rowToMove].Movable.IsValidMovement(deltaTime * Vector2.right);
 
                 if (!canMove)
                     break;
@@ -63,7 +63,7 @@ namespace EdwinGameDev.Movement
             {
                 for (int i = 0; i < rows; i++)
                 {
-                    enemies[i, rowToMove].movable.Move(deltaTime * Vector2.right);
+                    enemies[i, rowToMove].Movable.Move(deltaTime * Vector2.right);
                 }
             }
             else
@@ -81,7 +81,7 @@ namespace EdwinGameDev.Movement
             {
                 for (int i = 0; i < rows; i++)
                 {
-                    enemies[i, j].movable.Move(moveSpeed * Vector2.down);
+                    enemies[i, j].Movable.Move(moveSpeed * Vector2.down);
                 }
             }
         }

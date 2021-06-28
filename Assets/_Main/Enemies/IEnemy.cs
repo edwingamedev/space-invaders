@@ -1,10 +1,12 @@
 ﻿using EdwinGameDev.Movement;
+using EdwinGameDev.Weapons;
 using UnityEngine;
 
 namespace EdwinGameDev.Enemies
 {
     public interface IEnemy
     {
-        IMovable movable { get; }
+        WeaponHolder GetWeapons { get; }
+        IMovable Movable { get; }
     }
 }

@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 6370079305199211724, guid: 75ef9d5030b14874ca63d7a77821dbfe, type: 3}
   poolSize: 2
-  shootingPoint: {fileID: 6901120121036235974}
+  shootingPoint: {fileID: 4345872805579825311}
 --- !u!1 &8564109966444023120
 GameObject:
   m_ObjectHideFlags: 0

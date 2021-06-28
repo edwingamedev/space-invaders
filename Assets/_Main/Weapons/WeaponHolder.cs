@@ -53,9 +53,9 @@ namespace EdwinGameDev.Weapons
             if (!canShoot)
                 return;
 
-            foreach (var weapon in weapons)
+            foreach (IWeapon weapon in weapons)
             {
-                weapon?.Shoot();
+                weapon.Shoot();
             }
         }
 

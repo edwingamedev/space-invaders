@@ -1,6 +1,7 @@
 using EdwinGameDev.Movement;
 using EdwinGameDev.Projectile;
 using EdwinGameDev.Settings;
+using EdwinGameDev.Weapons;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -10,11 +11,12 @@ namespace EdwinGameDev.Enemies
 {
     public class Enemy : MonoBehaviour, IDamageable, IEnemy
     {
-        [SerializeField] private int health;
+        private int health;
         [SerializeField] private int maxHealth;
         [SerializeField] private AIMovementController movementController;
-
-        public IMovable movable => movementController;
+        [SerializeField] private WeaponHolder weapons;
+        public WeaponHolder GetWeapons => weapons;
+        public IMovable Movable => movementController;
 
         private void Awake()
         {
