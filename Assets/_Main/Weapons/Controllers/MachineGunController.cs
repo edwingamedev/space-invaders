@@ -7,13 +7,11 @@ namespace EdwinGameDev.Weapons
         [SerializeField] private Transform shootingPoint;
         private IWeapon weapon;
 
-        private void Start()
-        {
-            weapon = new MachineGun(this);
-        }
-
         public override IWeapon GetWeapon()
         {
+            if(weapon == null)
+                weapon = new MachineGun(this);
+
             return weapon;
         }
 

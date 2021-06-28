@@ -10,11 +10,6 @@ namespace EdwinGameDev.Weapons
         private IWeapon weapon;
         private bool canShoot = true;
 
-        private void Start()
-        {
-            weapon = new SingleBulletGun(this);
-        }
-
         private void EnableShoot()
         {
             Debug.Log("Enable shoot");
@@ -24,6 +19,9 @@ namespace EdwinGameDev.Weapons
 
         public override IWeapon GetWeapon()
         {
+            if (weapon == null)
+                weapon = new SingleBulletGun(this);
+
             return weapon;
         }
 

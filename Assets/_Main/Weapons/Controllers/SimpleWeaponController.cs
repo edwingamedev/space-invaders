@@ -4,17 +4,15 @@ namespace EdwinGameDev.Weapons
 {
 
     public class SimpleWeaponController : AWeaponController
-    {        
+    {
         [SerializeField] private Transform shootingPoint;
         private IWeapon weapon;
 
-        private void Start()
-        {
-            weapon = new SimpleGun(this);
-        }
-
         public override IWeapon GetWeapon()
         {
+            if (weapon == null)
+                weapon = new SimpleGun(this);
+
             return weapon;
         }
 
