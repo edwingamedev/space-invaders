@@ -3,13 +3,13 @@ using UnityEngine;
 
 namespace EdwinGameDev.Enemies
 {
-    public class EnemySpawner
+    public class ClusterEnemySpawner: IEnemySpawner
     {
         private readonly GameBounds gameBounds;
         private int rowsSpacing = 1;
         private int columnsSpacing = 1;
 
-        public EnemySpawner(GameBounds gameBounds)
+        public ClusterEnemySpawner(GameBounds gameBounds)
         {
             this.gameBounds = gameBounds;
         }
@@ -31,7 +31,9 @@ namespace EdwinGameDev.Enemies
                     var enemy = clusterSetup.enemyCollection.GetEnemy(clusterSetup.enemyRows[j]);
                     var spacing = new Vector2(spawnCentering.x + (rowsSpacing * i), spawnCentering.y + columnsSpacing * j);
 
-                    enemies[i, j] = Object.Instantiate(enemy, spacing, Quaternion.identity, enemyCluster.transform).GetComponent<IEnemy>();
+                    var go = GameObject.Instantiate(enemy, spacing, Quaternion.identity, enemyCluster.transform);
+                    go.name = $"Alien ({i},{j})";
+                    enemies[i, j] = go.GetComponent<IEnemy>();
                 }
             }
 
