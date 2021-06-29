@@ -33,7 +33,6 @@ namespace EdwinGameDev.Weapons
         public void AddWeapon(IWeapon weapon)
         {
             weapons.Add(weapon);
-            Debug.Log("Added " + weapon);
         }
 
         public void AddMultipleWeapons(AWeaponController[] weapons)

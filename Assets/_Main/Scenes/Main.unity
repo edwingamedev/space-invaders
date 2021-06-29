@@ -281,7 +281,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf9ef0503f52dc45805ba9741249787, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clusterSetup: {fileID: 11400000, guid: 97e7f3fa1860142458b2a724aa31c3c0, type: 2}
+  clusterSetup: {fileID: 11400000, guid: 180870200439c9d4296e97a168e4ab4d, type: 2}
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   clusterMovement: {fileID: 167974044}
   canMove: 1
@@ -968,8 +968,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 124.489, y: -57.8}
-  m_SizeDelta: {x: 200, y: 68.193}
+  m_AnchoredPosition: {x: 187.35498, y: -57.799988}
+  m_SizeDelta: {x: 325.732, y: 68.193}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1989546007
 MonoBehaviour:
@@ -991,7 +991,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'SCORE:'
+  m_text: 'SCORE: 00'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2112b7cf1c099c64990daaf44368f55a, type: 2}
   m_sharedMaterial: {fileID: 4588708482350554131, guid: 2112b7cf1c099c64990daaf44368f55a, type: 2}

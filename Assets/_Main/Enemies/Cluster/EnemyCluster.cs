@@ -12,7 +12,7 @@ namespace EdwinGameDev.Enemies
         [SerializeField] private ClusterSetup clusterSetup;
         [SerializeField] private GameBounds gameBounds;
         [SerializeField] private ClusterMovement clusterMovement;
-        [SerializeField] private IClusterWeaponController clusterWeapon = new BottomClusterWeapon(2);
+        [SerializeField] private IClusterWeaponController clusterWeapon = new BottomClusterWeapon(5);
         public bool canMove;
 
         private IEnemy[,] enemies;

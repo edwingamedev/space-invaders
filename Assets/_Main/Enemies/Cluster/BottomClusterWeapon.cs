@@ -5,9 +5,37 @@ namespace EdwinGameDev.Enemies
 {
     public class BottomClusterWeapon : IClusterWeaponController
     {
-        private List<IEnemy> shooters = new List<IEnemy>();
+        public class Shooter
+        {
+            public IEnemy enemy;
+            public float shootDelay;
+
+            public Shooter(IEnemy enemy, float shootDelay)
+            {
+                this.enemy = enemy;
+                this.shootDelay = shootDelay;
+            }
+
+            public bool Shoot()
+            {
+                if (Time.time > shootDelay)
+                {
+                    enemy.GetWeapons.Shoot();
+
+                    return true;
+                }
+
+                return false;
+            }
+        }
+
+        private List<Shooter> shooters = new List<Shooter>();
+
         private float fireRate;
         private float nextShoot;
+
+        private float shootChance = 30;
+        private float secondsBetweenShoots = 1f;
 
         public BottomClusterWeapon(float fireRate)
         {
@@ -24,9 +52,9 @@ namespace EdwinGameDev.Enemies
                 int columns = enemies.GetLength(1);
 
                 SelectShooters(enemies, rows, columns);
-
-                Shoot();
             }
+
+            Shoot();
         }
 
         private void SelectShooters(IEnemy[,] enemies, int rows, int columns)
@@ -41,7 +69,7 @@ namespace EdwinGameDev.Enemies
 
                     if (unit.gameObject.activeInHierarchy)
                     {
-                        shooters.Add(unit);
+                        shooters.Add(new Shooter(unit, Time.time + secondsBetweenShoots + Random.value)); ;
                         break;
                     }
                 }
@@ -51,16 +79,28 @@ namespace EdwinGameDev.Enemies
                     break;
                 }
             }
+
+            // Add shoot change
+            for (int i = shooters.Count - 1; i >= 0; i--)
+            {
+                if (Random.Range(0, 100) > shootChance)
+                {
+                    shooters.Remove(shooters[i]);
+                }
+            }
+
+
         }
 
         private void Shoot()
         {
             // Shoots
-            foreach (var shooter in shooters)
+            for (int i = shooters.Count - 1; i >= 0; i--)
             {
-                Debug.Log((shooter as Enemy).name);
-
-                shooter.GetWeapons.Shoot();
+                if (shooters[i].Shoot())
+                {
+                    shooters.Remove(shooters[i]);
+                }
             }
         }
     }
