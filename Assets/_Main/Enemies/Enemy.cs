@@ -9,14 +9,19 @@ using UnityEngine;
 
 namespace EdwinGameDev.Enemies
 {
-    public class Enemy : MonoBehaviour, IDamageable, IEnemy
+    public class Enemy : MonoBehaviour, IDamageable, IEnemy, ISubject
     {
         private int health;
+        [SerializeField] private int scoreValue;
         [SerializeField] private int maxHealth;
         [SerializeField] private AIMovementController movementController;
         [SerializeField] private WeaponHolder weapons;
         public WeaponHolder GetWeapons => weapons;
         public IMovable Movable => movementController;
+
+        public int ScoreValue => scoreValue;        
+
+        protected List<IObserver> observers = new List<IObserver>();
 
         private void Awake()
         {
@@ -44,6 +49,8 @@ namespace EdwinGameDev.Enemies
         private void Die()
         {
             gameObject.SetActive(false);
+
+            Notify();
         }
 
         private void OnTriggerEnter2D(Collider2D col)
@@ -51,6 +58,30 @@ namespace EdwinGameDev.Enemies
             if (col.CompareTag(Tags.BULLET))
             {
                 col.GetComponent<IProjectile>().ApplyDamage(this);
+            }
+        }
+                
+        public void Attach(IObserver observer)
+        {
+            if (!observers.Contains(observer))
+            {
+                observers.Add(observer);
+            }
+        }
+
+        public void Detach(IObserver observer)
+        {
+            if (observers.Contains(observer))
+            {
+                observers.Remove(observer);
+            }
+        }
+                
+        public void Notify()
+        {
+            foreach (var observer in observers)
+            {
+                observer?.ReceiveNotification(this);
             }
         }
     }

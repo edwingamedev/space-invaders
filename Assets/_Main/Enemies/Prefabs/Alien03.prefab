@@ -174,6 +174,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 54820b0eda63bd44d9c5cb7f36657655, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  scoreValue: 30
   maxHealth: 1
   movementController: {fileID: 8203425764267837402}
   weapons: {fileID: 4259936273930216452}
