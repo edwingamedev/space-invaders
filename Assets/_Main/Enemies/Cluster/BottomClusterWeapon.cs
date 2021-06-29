@@ -64,7 +64,7 @@ namespace EdwinGameDev.Enemies
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
-                {
+                {                    
                     var unit = enemies[i, j] as Enemy;
 
                     if (unit.gameObject.activeInHierarchy)

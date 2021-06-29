@@ -16,6 +16,7 @@ namespace EdwinGameDev.Enemies
         public bool canMove;
 
         private IEnemy[,] enemies;
+
         private IEnemySpawner enemySpawner;
         private int enemiesDead;
         public ScriptableEvent<int> OnEnemyDied;
@@ -26,15 +27,12 @@ namespace EdwinGameDev.Enemies
             SpawnRows();
         }
 
-        private void FixedUpdate()
-        {
-            if (canMove)
-                clusterMovement.Move(enemies, Time.deltaTime);
-        }
-
         private void Update()
         {
             clusterWeapon?.Shoot(enemies);
+
+            if (canMove)
+                clusterMovement.Move(enemies, Time.deltaTime, enemiesDead);
         }
 
         private void SpawnRows()
@@ -51,17 +49,24 @@ namespace EdwinGameDev.Enemies
             }
         }
 
+        public void Respawn()
+        {
+            gameObject.SetActive(true);
+            enemySpawner.ResetClusterPosition();
+            enemiesDead = 0;
+        }
+
         public void ReceiveNotification(ISubject subject)
         {
             enemiesDead++;
-
-            OnEnemyDied?.Trigger((subject as IEnemy).ScoreValue);
+                       
+            OnEnemyDied?.Notify((subject as IEnemy).ScoreValue);
 
             if (enemiesDead >= enemies.Length)
-            {            
+            {
                 enemiesDead = 0;
 
-                enemySpawner.ResetClusterPosition();
+                Respawn();
             }
         }
     }
