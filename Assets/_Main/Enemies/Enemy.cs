@@ -11,9 +11,9 @@ namespace EdwinGameDev.Enemies
 {
     public class Enemy : MonoBehaviour, IDamageable, IEnemy, ISubject
     {
-        private int health;
+        [SerializeField] private int health;
         [SerializeField] private int scoreValue;
-        [SerializeField] private int maxHealth;
+        private int maxHealth;
         [SerializeField] private AIMovementController movementController;
         [SerializeField] private WeaponHolder weapons;
         public WeaponHolder GetWeapons => weapons;
@@ -32,7 +32,7 @@ namespace EdwinGameDev.Enemies
 
         private void Setup()
         {
-            health = maxHealth;
+            maxHealth = health;
         }
 
         public void ReceiveDamage(int value)
@@ -50,6 +50,9 @@ namespace EdwinGameDev.Enemies
         {
             gameObject.SetActive(false);
 
+            //Reset health
+            health = maxHealth;
+
             Notify();
         }
 
@@ -58,6 +61,11 @@ namespace EdwinGameDev.Enemies
             if (col.CompareTag(Tags.BULLET))
             {
                 col.GetComponent<IProjectile>().ApplyDamage(this);
+            }
+
+            if (col.CompareTag(Tags.PLAYER))
+            {
+                col.GetComponent<IDamageable>().ReceiveDamage(1);
             }
         }
                 

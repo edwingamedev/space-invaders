@@ -1,3 +1,4 @@
+using EdwinGameDev.Events;
 using EdwinGameDev.Movement;
 using EdwinGameDev.Projectile;
 using EdwinGameDev.Settings;
@@ -11,12 +12,18 @@ namespace EdwinGameDev.Player
 {
     public class Player : MonoBehaviour, IDamageable
     {
+        [SerializeField] private int health;
+        private int maxHealth;
         [SerializeField] private AMovementController movementController;
         [SerializeField] private WeaponHolder weapons;
+
+        [SerializeField] private ScriptableEvent<bool> onPlayerDied;
+        [SerializeField] private ScriptableEvent<int> onPlayerDamaged;
 
         private void Awake()
         {
             gameObject.tag = Tags.PLAYER;
+            maxHealth = health;
         }
 
         private void Update()
@@ -25,9 +32,30 @@ namespace EdwinGameDev.Player
             weapons?.Shoot();
         }
 
+        public void Respawn()
+        {
+            transform.position = Vector3.zero;
+
+            // Reset health
+            health = maxHealth;
+
+            gameObject.SetActive(true);
+        }
+
         public void ReceiveDamage(int value)
         {
             Debug.Log("player Damage: " + value);
+            health -= value;
+
+            // Notifies when player is damaged
+            onPlayerDamaged?.Notify(value);
+
+            // Notifies when player is dead
+            if (health <= 0)
+            {
+                onPlayerDied?.Notify(true);
+            }
+                
         }
 
         private void OnTriggerEnter2D(Collider2D col)
