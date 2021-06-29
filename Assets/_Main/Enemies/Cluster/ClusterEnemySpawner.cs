@@ -1,4 +1,5 @@
 ﻿using EdwinGameDev.Settings;
+using System;
 using UnityEngine;
 
 namespace EdwinGameDev.Enemies
@@ -8,6 +9,7 @@ namespace EdwinGameDev.Enemies
         private readonly GameBounds gameBounds;
         private int rowsSpacing = 1;
         private int columnsSpacing = 1;
+        private IEnemy[,] currentEnemyCluster;
 
         public ClusterEnemySpawner(GameBounds gameBounds)
         {
@@ -19,7 +21,7 @@ namespace EdwinGameDev.Enemies
             int rows = clusterSetup.enemiesPerRow;
             int colums = clusterSetup.enemyRows.Length;
 
-            var enemies = new IEnemy[rows, colums];
+            currentEnemyCluster = new IEnemy[rows, colums];
             var spawnCentering = CalculateCenter(rows, colums);
 
             for (int j = colums - 1; j >= 0; j--)
@@ -33,11 +35,34 @@ namespace EdwinGameDev.Enemies
 
                     var go = GameObject.Instantiate(enemy, spacing, Quaternion.identity, enemyCluster.transform);
                     go.name = $"Alien ({i},{j})";
-                    enemies[i, j] = go.GetComponent<IEnemy>();
+                    currentEnemyCluster[i, j] = go.GetComponent<IEnemy>();
                 }
             }
 
-            return enemies;
+            return currentEnemyCluster;
+        }
+
+        public IEnemy[,] ResetClusterPosition()
+        {
+            int rows = currentEnemyCluster.GetLength(0);
+            int colums = currentEnemyCluster.GetLength(1);
+            var spawnCentering = CalculateCenter(rows, colums);
+
+            for (int j = colums - 1; j >= 0; j--)
+            {                
+                for (int i = 0; i < rows; i++)
+                {
+                    var spacing = new Vector2(spawnCentering.x + (rowsSpacing * i), spawnCentering.y + columnsSpacing * j);
+
+                    // Set position
+                    currentEnemyCluster[i, j].gameObject.transform.position = spacing;
+
+                    // Enable GameObject
+                    currentEnemyCluster[i, j].gameObject.SetActive(true);
+                }
+            }
+
+            return currentEnemyCluster;
         }
 
         private Vector2 CalculateCenter(int rows, int colums)

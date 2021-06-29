@@ -1,3 +1,4 @@
+using EdwinGameDev.Events;
 using EdwinGameDev.Movement;
 using EdwinGameDev.Settings;
 using System;
@@ -6,7 +7,7 @@ using UnityEngine;
 
 namespace EdwinGameDev.Enemies
 {
-    public class EnemyCluster : MonoBehaviour
+    public class EnemyCluster : MonoBehaviour, IObserver
     {
         [SerializeField] private ClusterSetup clusterSetup;
         [SerializeField] private GameBounds gameBounds;
@@ -16,6 +17,8 @@ namespace EdwinGameDev.Enemies
 
         private IEnemy[,] enemies;
         private IEnemySpawner enemySpawner;
+        private int enemiesDead;
+        public ScriptableEvent<int> OnEnemyDied;
 
         private void Start()
         {
@@ -37,6 +40,29 @@ namespace EdwinGameDev.Enemies
         private void SpawnRows()
         {
             enemies = enemySpawner.SpawnEnemies(clusterSetup);
+            SetCallback();
+        }
+
+        private void SetCallback()
+        {
+            foreach (ISubject item in enemies)
+            {
+                item.Attach(this);
+            }
+        }
+
+        public void ReceiveNotification(ISubject subject)
+        {
+            enemiesDead++;
+
+            OnEnemyDied?.Trigger((subject as IEnemy).ScoreValue);
+
+            if (enemiesDead >= enemies.Length)
+            {            
+                enemiesDead = 0;
+
+                enemySpawner.ResetClusterPosition();
+            }
         }
     }
 }
