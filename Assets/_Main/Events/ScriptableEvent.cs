@@ -8,17 +8,17 @@ namespace EdwinGameDev.Events
     {
         private event Action<T> OnTriggered;
 
-        public void Attach(Action<T> action)
+        public void Subscribe(Action<T> action)
         {
             OnTriggered += action;
         }
 
-        public void Dettach(Action<T> action)
+        public void UnSubscribe(Action<T> action)
         {
             OnTriggered -= action;
         }
 
-        public void Trigger(T value)
+        public void Notify(T value)
         {
             OnTriggered?.Invoke(value);
         }

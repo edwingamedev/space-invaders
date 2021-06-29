@@ -63,7 +63,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
-  moveSpeed: 10
+  moveSpeed: 12
   canMove: 1
 --- !u!61 &6370079305199211727
 BoxCollider2D:

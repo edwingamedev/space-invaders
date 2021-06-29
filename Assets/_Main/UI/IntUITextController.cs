@@ -1,0 +1,1 @@
+﻿public class IntUITextController : AUITextController<int> { }
