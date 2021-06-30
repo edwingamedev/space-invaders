@@ -14,8 +14,6 @@ namespace EdwinGameDev.Movement
         {
             direction *= -1;
 
-            Debug.Log("EnemyReachedBorder");
-
             MoveDown(enemies, movementSettings.verticalSpeed);
         }
 

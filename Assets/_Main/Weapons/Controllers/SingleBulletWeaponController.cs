@@ -8,7 +8,11 @@ namespace EdwinGameDev.Weapons
     {
         [SerializeField] private Transform shootingPoint;
         private IWeapon weapon;
-        private bool canShoot = true;
+
+        private void Awake()
+        {
+            EnableShoot();
+        }
 
         private void EnableShoot()
         {
@@ -31,7 +35,6 @@ namespace EdwinGameDev.Weapons
 
                 ShootFromPosition(shootingPoint);
             }
-
         }
 
         public override void ReceiveNotification(ISubject subject)

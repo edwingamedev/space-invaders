@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8203425762971390763}
   - component: {fileID: 8203425762971390762}
+  - component: {fileID: 6879332593277836289}
   m_Layer: 6
   m_Name: Renderer
   m_TagString: Untagged
@@ -127,6 +128,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &6879332593277836289
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8203425762971390760}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1f612a2791920df47b56235d00176634, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &8203425764267837382
 GameObject:
   m_ObjectHideFlags: 0
@@ -139,7 +159,7 @@ GameObject:
   - component: {fileID: 8203425764267837400}
   - component: {fileID: 8203425764267837402}
   - component: {fileID: 8203425764267837401}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Alien01
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -153,7 +173,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8203425764267837382}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -8.03, y: 8, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:

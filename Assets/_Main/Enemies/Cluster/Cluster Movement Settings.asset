@@ -12,6 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab97f3691ed6024582666ac15dbfee2, type: 3}
   m_Name: Cluster Movement Settings
   m_EditorClassIdentifier: 
-  moveDistanceHorizontal: 10
-  moveDistanceVertical: 0.5
-  movementFrequency: 0.1
+  horizontalSpeed:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.5
+      inSlope: 1.4860326
+      outSlope: 1.4860326
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0.10714286
+    - serializedVersion: 3
+      time: 1
+      value: 10
+      inSlope: 29.1803
+      outSlope: 29.1803
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.043650806
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  verticalSpeed: 0.25

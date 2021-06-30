@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6370079305199211731}
   - component: {fileID: 6370079305199211727}
   - component: {fileID: 6370079305199211729}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: RayBullet
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -122,7 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6370079305463524432}
   - component: {fileID: 6370079305463524435}
-  m_Layer: 6
+  m_Layer: 7
   m_Name: Renderer
   m_TagString: Untagged
   m_Icon: {fileID: 0}

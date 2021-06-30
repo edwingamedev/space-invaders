@@ -11,6 +11,8 @@ namespace EdwinGameDev.Weapons
         public abstract IWeapon GetWeapon();
         [SerializeField] protected int poolSize = 30;
 
+        public bool canShoot { get; set; }
+
         private Pooling projectilePool;
 
         public abstract void Shoot();

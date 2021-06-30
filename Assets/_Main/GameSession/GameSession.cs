@@ -1,3 +1,4 @@
+using EdwinGameDev.Barriers;
 using EdwinGameDev.Enemies;
 using EdwinGameDev.Events;
 using EdwinGameDev.Player;
@@ -8,11 +9,17 @@ using UnityEngine;
 
 public class GameSession : MonoBehaviour
 {
-    [SerializeField] private int score;
+    // GamePlay
+    private int score;
     [SerializeField] private int lives;
+    private int maxLives;
 
     [SerializeField] private float secondsToRespawn;
-    private int maxLives;
+    [SerializeField] private float secondsToNextStage;
+    [SerializeField] private List<Barrier> barriers;
+
+    [SerializeField] private ScriptableEvent<bool> onStageClear;
+    private bool gameStarted;
 
     // Enemies
     [SerializeField] private ScriptableEvent<int> onEnemyDied;
@@ -29,20 +36,30 @@ public class GameSession : MonoBehaviour
     [SerializeField] private GameObject playerPrefab;
     private Player player;
 
-
-    private bool gameStarted;
-
     private void Awake()
     {
         maxLives = lives;
 
         onEnemyDied.Subscribe(AddPoints);
         onPlayerDied.Subscribe(ValidatePlayerScore);
+        onStageClear.Subscribe(NextStage);
+    }
+
+    private void NextStage(bool value)
+    {
+        Invoke("PrepareStage", secondsToNextStage);
+    }
+
+    private void PrepareStage()
+    {
+        enemies.Respawn();
+
+        ResetBarriers();
     }
 
     private void Update()
     {
-        if (!gameStarted && Input.GetKeyDown(KeyCode.Return))
+        if (!gameStarted && Input.GetButtonDown("Submit"))
         {
             StartGame();
         }
@@ -76,9 +93,20 @@ public class GameSession : MonoBehaviour
         // Reset Lives
         SetLives(maxLives);
 
+        // Barriers
+        ResetBarriers();
+
         onGameEnded.Notify(false);
 
         gameStarted = true;
+    }
+
+    private void ResetBarriers()
+    {
+        foreach (var barrier in barriers)
+        {
+            barrier.Initialize();
+        }
     }
 
     private void SetLives(int value)
@@ -118,6 +146,7 @@ public class GameSession : MonoBehaviour
             GameOver();
         }
     }
+
     private void Respawn()
     {
         enemies.gameObject.SetActive(true);

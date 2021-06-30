@@ -5,31 +5,7 @@ namespace EdwinGameDev.Enemies
 {
     public class BottomClusterWeapon : IClusterWeaponController
     {
-        public class Shooter
-        {
-            public IEnemy enemy;
-            public float shootDelay;
-
-            public Shooter(IEnemy enemy, float shootDelay)
-            {
-                this.enemy = enemy;
-                this.shootDelay = shootDelay;
-            }
-
-            public bool Shoot()
-            {
-                if (Time.time > shootDelay)
-                {
-                    enemy.GetWeapons.Shoot();
-
-                    return true;
-                }
-
-                return false;
-            }
-        }
-
-        private List<Shooter> shooters = new List<Shooter>();
+        private List<ClusterUnitShooter> shooters = new List<ClusterUnitShooter>();
 
         private float fireRate;
         private float nextShoot;
@@ -70,12 +46,12 @@ namespace EdwinGameDev.Enemies
             for (int i = 0; i < rows; i++)
             {
                 for (int j = 0; j < columns; j++)
-                {                    
+                {
                     var unit = enemies[i, j] as Enemy;
 
                     if (unit.gameObject.activeInHierarchy)
                     {
-                        shooters.Add(new Shooter(unit, Time.time + secondsBetweenShoots + Random.value)); ;
+                        shooters.Add(new ClusterUnitShooter(unit, Time.time + secondsBetweenShoots + Random.value)); ;
                         break;
                     }
                 }

@@ -47,6 +47,7 @@ MonoBehaviour:
   clusterSetup: {fileID: 11400000, guid: 180870200439c9d4296e97a168e4ab4d, type: 2}
   gameBounds: {fileID: 11400000, guid: fd88dfb468417bd4189d56c42782d78a, type: 2}
   clusterMovement: {fileID: 6447317744311837980}
+  onStageClear: {fileID: 11400000, guid: f85dd36465d4ed742a85a93075bdc3c2, type: 2}
   canMove: 1
   OnEnemyDied: {fileID: 11400000, guid: 30797f224638b3f449ee498630aafe1a, type: 2}
 --- !u!114 &6447317744311837980
@@ -62,27 +63,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSettings: {fileID: 11400000, guid: c3ebae8273ef9d245a353241756b2e08, type: 2}
-  speedValue:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 1
-      value: 5
-      inSlope: 8.214912
-      outSlope: 8.214912
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.111403525
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4

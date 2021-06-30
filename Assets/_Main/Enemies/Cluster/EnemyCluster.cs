@@ -13,6 +13,7 @@ namespace EdwinGameDev.Enemies
         [SerializeField] private GameBounds gameBounds;
         [SerializeField] private ClusterMovement clusterMovement;
         [SerializeField] private IClusterWeaponController clusterWeapon = new BottomClusterWeapon(5);
+        public ScriptableEvent<bool> onStageClear;
         public bool canMove;
 
         private IEnemy[,] enemies;
@@ -51,6 +52,7 @@ namespace EdwinGameDev.Enemies
 
         public void Respawn()
         {
+            clusterWeapon = new BottomClusterWeapon(5);
             gameObject.SetActive(true);
             enemySpawner.ResetClusterPosition();
             enemiesDead = 0;
@@ -59,14 +61,14 @@ namespace EdwinGameDev.Enemies
         public void ReceiveNotification(ISubject subject)
         {
             enemiesDead++;
-                       
+
             OnEnemyDied?.Notify((subject as IEnemy).ScoreValue);
 
             if (enemiesDead >= enemies.Length)
             {
                 enemiesDead = 0;
 
-                Respawn();
+                onStageClear.Notify(true);
             }
         }
     }
