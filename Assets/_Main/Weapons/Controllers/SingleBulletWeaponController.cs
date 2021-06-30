@@ -12,8 +12,6 @@ namespace EdwinGameDev.Weapons
 
         private void EnableShoot()
         {
-            Debug.Log("Enable shoot");
-
             canShoot = true;
         }
 

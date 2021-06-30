@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ab97f3691ed6024582666ac15dbfee2, type: 3}
   m_Name: Cluster Movement Settings
   m_EditorClassIdentifier: 
-  moveDistanceHorizontal: -10
+  moveDistanceHorizontal: 10
   moveDistanceVertical: 0.5
-  movementFrequency: 0.2
+  movementFrequency: 0.1

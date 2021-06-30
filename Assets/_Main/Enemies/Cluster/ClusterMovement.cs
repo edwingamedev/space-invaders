@@ -7,22 +7,16 @@ namespace EdwinGameDev.Movement
     {
         [SerializeField] private MovementSettings movementSettings;
 
-        private float nextMovement;
         private bool canMove;
-        [SerializeField] private float moveRatio;
-
-        private void Start()
-        {
-            SetNextMovement(1, 0);
-        }
+        private int direction = 1;
 
         private void EnemyReachedBorder(IEnemy[,] enemies)
         {
-            movementSettings.moveDistanceHorizontal *= -1;
+            direction *= -1;
 
             Debug.Log("EnemyReachedBorder");
 
-            MoveDown(enemies, movementSettings.moveDistanceVertical);
+            MoveDown(enemies, movementSettings.verticalSpeed);
         }
 
         public void Move(IEnemy[,] enemies, float deltaTime, int enemiesDead)
@@ -30,45 +24,45 @@ namespace EdwinGameDev.Movement
             if (enemies == null)
                 return;
 
-            if (Time.time > nextMovement)
-            {
-                SetNextMovement(enemies.Length, enemiesDead);
+            float killPercentage = (float)enemiesDead / (float)enemies.Length;
 
-                MoveSideways(enemies, deltaTime * movementSettings.moveDistanceHorizontal);
-            }
+            MoveSideways(enemies,  deltaTime * direction * movementSettings.horizontalSpeed.Evaluate(killPercentage));
         }
 
         private void MoveSideways(IEnemy[,] enemies, float deltaTime)
         {
             //Validate movement
-            int rows = enemies.GetLength(0);
-            int columns = enemies.GetLength(1);
+            int rows = enemies.GetLength(0) - 1;
+            int columns = enemies.GetLength(1) - 1;
 
-            for (int j = 0; j < columns; j++)
+            for (int j = columns; j >= 0; j--)
             {
-                for (int i = 0; i < rows; i++)
+                for (int i = rows; i >= 0; i--)
                 {
-                    if (!enemies[i, j].gameObject.activeInHierarchy)
-                        continue;
+                    if (enemies[i, j].gameObject.activeInHierarchy)
+                    {
+                        canMove = enemies[i, j].Movable.IsValidMovement(deltaTime * Vector2.right);
 
-                    canMove = enemies[i, j].Movable.IsValidMovement(deltaTime * Vector2.right);
-
-                    if (!canMove)
-                        break;
+                        if (!canMove)
+                            break;
+                    }
                 }
+
+                if (!canMove)
+                    break;
             }
 
             // Move
             if (canMove)
             {
-                for (int j = 0; j < columns; j++)
+                for (int j = columns; j >= 0; j--)
                 {
-                    for (int i = 0; i < rows; i++)
+                    for (int i = rows; i >= 0; i--)
                     {
-                        if (!enemies[i, j].gameObject.activeInHierarchy)
-                            continue;
-
-                        enemies[i, j].Movable.Move(deltaTime * Vector2.right);
+                        if (enemies[i, j].gameObject.activeInHierarchy)
+                        {
+                            enemies[i, j].Movable.Move(deltaTime * Vector2.right);
+                        }
                     }
                 }
             }
@@ -87,18 +81,10 @@ namespace EdwinGameDev.Movement
             {
                 for (int i = 0; i < rows; i++)
                 {
-                    if (!enemies[i, j].gameObject.activeInHierarchy)
-                        continue;
-
-                    enemies[i, j].Movable.Move(moveSpeed * Vector2.down);
+                    if (enemies[i, j].gameObject.activeInHierarchy)
+                        enemies[i, j].Movable.Move(moveSpeed * Vector2.down);
                 }
             }
-        }
-
-        private void SetNextMovement(int numOfEnemies, int enemiesDead)
-        {
-            moveRatio = (movementSettings.movementFrequency - ((0.019f / numOfEnemies) * enemiesDead));
-            nextMovement = Time.time + moveRatio;
         }
     }
 }

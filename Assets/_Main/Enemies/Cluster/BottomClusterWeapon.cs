@@ -42,6 +42,12 @@ namespace EdwinGameDev.Enemies
             this.fireRate = fireRate;
         }
 
+        public void ResetWeapon()
+        {
+            nextShoot = Time.time + fireRate;
+            shooters.Clear();
+        }
+
         public void Shoot(IEnemy[,] enemies)
         {
             if (Time.time > nextShoot)
@@ -88,8 +94,6 @@ namespace EdwinGameDev.Enemies
                     shooters.Remove(shooters[i]);
                 }
             }
-
-
         }
 
         private void Shoot()
