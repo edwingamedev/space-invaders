@@ -1,5 +1,14 @@
-﻿public class BooleanUITextController : AUITextController<bool>
+﻿using UnityEngine;
+
+public class BooleanUITextController : AUITextController<bool>
 {
+    [SerializeField] private bool startEnabled;
+
+    private void Awake()
+    {
+        UpdateUI(startEnabled);
+    }
+
     protected override void UpdateUI(bool value)
     {
         if (value)

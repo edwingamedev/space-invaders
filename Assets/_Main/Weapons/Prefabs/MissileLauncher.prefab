@@ -47,6 +47,7 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1810411611919486341, guid: 55363f63415e55648b787869a30c5fe0, type: 3}
   poolSize: 2
   shootingPoint: {fileID: 5896287873257790152}
+  onMissileEnabled: {fileID: 11400000, guid: c086552b505cda94fb0be8c3c80697c1, type: 2}
 --- !u!1 &8048164580287048164
 GameObject:
   m_ObjectHideFlags: 0

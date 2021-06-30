@@ -8,7 +8,7 @@
 
         public MachineGun(AWeaponController weaponController) : base(weaponController)
         {
-            FireRate = .25f;
+            FireRate = .15f;
             PowerLevel = 1;
             MaxPower = 3;
         }

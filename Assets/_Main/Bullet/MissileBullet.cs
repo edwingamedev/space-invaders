@@ -45,9 +45,10 @@ namespace EdwinGameDev.Projectile
 
         private void OnTriggerEnter2D(Collider2D col)
         {
-            // Sets Target            
-            ReceiveDamage(bulletStatus.damage);
+            // Sets Target  
+            target = null;
 
+            ReceiveDamage(bulletStatus.damage);
         }
     }
 }

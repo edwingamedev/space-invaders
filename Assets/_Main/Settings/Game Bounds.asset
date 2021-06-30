@@ -15,4 +15,4 @@ MonoBehaviour:
   MIN_X: 0.5
   MAX_X: 0.5
   MIN_Y: 0.5
-  MAX_Y: 0.5
+  MAX_Y: 0

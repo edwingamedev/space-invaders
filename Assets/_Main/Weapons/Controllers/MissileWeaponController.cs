@@ -1,11 +1,13 @@
-﻿using UnityEngine;
+﻿using EdwinGameDev.Events;
+using UnityEngine;
 
 namespace EdwinGameDev.Weapons
 {
     public class MissileWeaponController : AWeaponController
     {
         [SerializeField] private Transform shootingPoint;
-        private IWeapon weapon;
+        public ScriptableEvent<bool> onMissileEnabled;
+        private IWeapon weapon;        
 
         public override IWeapon GetWeapon()
         {
@@ -20,7 +22,7 @@ namespace EdwinGameDev.Weapons
             if (canShoot && Input.GetButtonDown("Fire1"))
             {
                 canShoot = false;
-
+                onMissileEnabled.Notify(false);
                 ShootFromPosition(shootingPoint);
             }
         }

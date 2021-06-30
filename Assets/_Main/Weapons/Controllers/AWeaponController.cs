@@ -19,7 +19,7 @@ namespace EdwinGameDev.Weapons
         public abstract void Shoot();
         public virtual void ReceiveNotification(ISubject subject) { }
 
-        protected void ShootFromPosition(Transform shootingPoint)
+        protected virtual void ShootFromPosition(Transform shootingPoint)
         {
             if (projectilePool == null)
             {
