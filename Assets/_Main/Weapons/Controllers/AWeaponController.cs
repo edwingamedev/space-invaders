@@ -1,4 +1,5 @@
-﻿using EdwinGameDev.Projectile;
+﻿using EdwinGameDev.Events;
+using EdwinGameDev.Projectile;
 using UnityEngine;
 
 namespace EdwinGameDev.Weapons
@@ -30,7 +31,7 @@ namespace EdwinGameDev.Weapons
 
             if (projectile != null)
             {
-                projectile.Attach(this);
+                projectile.Subscribe(this);
 
                 // Assign shooting point values
                 projectile.transform.position = shootingPoint.position;

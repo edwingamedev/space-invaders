@@ -67,8 +67,8 @@ namespace EdwinGameDev.Enemies
 
         private Vector2 CalculateCenter(int rows, int colums)
         {
-            float centerX = (gameBounds.MIN_X + gameBounds.MAX_X) / 2;
-            float centerY = gameBounds.MAX_Y - colums;
+            float centerX = (gameBounds.GetMinX + gameBounds.GetMaxX) / 2;
+            float centerY = gameBounds.GetMaxY - colums;
 
             return new Vector2(centerX - Mathf.FloorToInt(rows / 2), centerY);
         }

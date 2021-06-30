@@ -1,3 +1,4 @@
+using EdwinGameDev.Events;
 using EdwinGameDev.Projectile;
 using System.Collections.Generic;
 using UnityEngine;
@@ -54,7 +55,7 @@ namespace EdwinGameDev.Barriers
         }
 
         // The subscription management methods.
-        public void Attach(IObserver observer)
+        public void Subscribe(IObserver observer)
         {
             if (!observers.Contains(observer))
             {
@@ -62,7 +63,7 @@ namespace EdwinGameDev.Barriers
             }
         }
 
-        public void Detach(IObserver observer)
+        public void UnSubscribe(IObserver observer)
         {
             if (observers.Contains(observer))
             {

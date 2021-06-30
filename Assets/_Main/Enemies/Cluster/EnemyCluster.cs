@@ -39,14 +39,14 @@ namespace EdwinGameDev.Enemies
         private void SpawnRows()
         {
             enemies = enemySpawner.SpawnEnemies(clusterSetup);
-            SetCallback();
+            SetCallback(enemies);
         }
 
-        private void SetCallback()
+        private void SetCallback(IEnemy[,] _enemies)
         {
-            foreach (ISubject item in enemies)
+            foreach (ISubject item in _enemies)
             {
-                item.Attach(this);
+                item.Subscribe(this);
             }
         }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using EdwinGameDev.Events;
+using System.Collections.Generic;
 using UnityEngine;
 
 namespace EdwinGameDev.Barriers
@@ -14,7 +15,7 @@ namespace EdwinGameDev.Barriers
         private void Awake()
         {
             if (barrier != null)
-                (barrier as ISubject).Attach(this);
+                (barrier as ISubject).Subscribe(this);
         }
 
         public void ReceiveNotification(ISubject subject)

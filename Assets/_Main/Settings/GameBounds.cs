@@ -7,23 +7,27 @@ namespace EdwinGameDev.Settings
     [CreateAssetMenu(menuName = "Settings/GameBounds")]
     public class GameBounds : ScriptableObject
     {
-        public float MIN_X => Camera.main.ViewportToWorldPoint(Vector3.zero).x + .5f; // -8.5
-        public float MAX_X => Camera.main.ViewportToWorldPoint(Vector3.one).x - .5f; // 8.5
+        [SerializeField] private float MIN_X;
+        [SerializeField] private float MAX_X; 
+        [SerializeField] private float MIN_Y;
+        [SerializeField] private float MAX_Y;
 
-        public float MIN_Y => Camera.main.ViewportToWorldPoint(Vector3.zero).y + .5f; // -0.65
-        public float MAX_Y => Camera.main.ViewportToWorldPoint(Vector3.one).y - .5f; // 8.8
+        public float GetMinX => Camera.main.ViewportToWorldPoint(Vector3.zero).x + MIN_X;
+        public float GetMaxX => Camera.main.ViewportToWorldPoint(Vector3.one).x - MAX_X;
+        public float GetMinY => Camera.main.ViewportToWorldPoint(Vector3.zero).y + MIN_Y;
+        public float GetMaxY => Camera.main.ViewportToWorldPoint(Vector3.one).y - MAX_Y;
 
         public Vector2 ConvertToInBoundsPositon(Vector2 coordToTest)
         {
-            coordToTest.x = Mathf.Clamp(coordToTest.x, MIN_X, MAX_X);
-            coordToTest.y = Mathf.Clamp(coordToTest.y, MIN_Y, MAX_Y);
+            coordToTest.x = Mathf.Clamp(coordToTest.x, GetMinX, GetMaxX);
+            coordToTest.y = Mathf.Clamp(coordToTest.y, GetMinY, GetMaxY);
 
             return coordToTest;
         }
 
         public bool IsInVerticalBounds(Vector2 coordToTest)
         {
-            if (coordToTest.y < MIN_Y || coordToTest.y > MAX_Y)
+            if (coordToTest.y < GetMinY || coordToTest.y > GetMaxY)
             {
                 return false;
             }
@@ -35,7 +39,7 @@ namespace EdwinGameDev.Settings
 
         public bool IsInHorizontalBounds(Vector2 coordToTest)
         {
-            if (coordToTest.x < MIN_X || coordToTest.x > MAX_X)
+            if (coordToTest.x < GetMinX || coordToTest.x > GetMaxX)
             {
                 return false;
             }

@@ -1,5 +1,8 @@
-﻿public interface IObserver
+﻿namespace EdwinGameDev.Events
 {
-    // Receive update from subject
-    void ReceiveNotification(ISubject subject);
+    public interface IObserver
+    {
+        // Receive update from subject
+        void ReceiveNotification(ISubject subject);
+    }
 }

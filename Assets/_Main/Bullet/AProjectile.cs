@@ -1,4 +1,5 @@
-﻿using EdwinGameDev.Movement;
+﻿using EdwinGameDev.Events;
+using EdwinGameDev.Movement;
 using EdwinGameDev.Weapons;
 using System;
 using System.Collections.Generic;
@@ -49,7 +50,7 @@ namespace EdwinGameDev.Projectile
         }
 
         // The subscription management methods.
-        public virtual void Attach(IObserver observer)
+        public virtual void Subscribe(IObserver observer)
         {
             if (!observers.Contains(observer))
             {
@@ -57,7 +58,7 @@ namespace EdwinGameDev.Projectile
             }
         }
 
-        public virtual void Detach(IObserver observer)
+        public virtual void UnSubscribe(IObserver observer)
         {
             if (observers.Contains(observer))
             {

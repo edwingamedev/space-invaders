@@ -1,3 +1,4 @@
+using EdwinGameDev.Events;
 using EdwinGameDev.Movement;
 using EdwinGameDev.Projectile;
 using EdwinGameDev.Settings;
@@ -69,7 +70,7 @@ namespace EdwinGameDev.Enemies
             }
         }
                 
-        public void Attach(IObserver observer)
+        public void Subscribe(IObserver observer)
         {
             if (!observers.Contains(observer))
             {
@@ -77,7 +78,7 @@ namespace EdwinGameDev.Enemies
             }
         }
 
-        public void Detach(IObserver observer)
+        public void UnSubscribe(IObserver observer)
         {
             if (observers.Contains(observer))
             {
