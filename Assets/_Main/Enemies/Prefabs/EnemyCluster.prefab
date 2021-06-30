@@ -63,3 +63,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSettings: {fileID: 11400000, guid: c3ebae8273ef9d245a353241756b2e08, type: 2}
+  onEnemyTouchedBottom: {fileID: 11400000, guid: 7eec819886f0aac4ab93d0b730517f37, type: 2}

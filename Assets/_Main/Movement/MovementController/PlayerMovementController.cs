@@ -7,6 +7,12 @@ namespace EdwinGameDev.Movement
     {
         private IInputProcessor inputProcessor;
 
+        private void Awake()
+        {
+            movement = new MoveWithBounds(gameBounds);
+            inputProcessor = new KeyboardMovementProcessor();
+        }
+
         public override bool IsValidVerticalMovement(Vector2 movementVector)
         {
             return movement.IsValidVerticalMovement(transform, inputProcessor.InputVector(movementVector));
@@ -19,15 +25,8 @@ namespace EdwinGameDev.Movement
 
         public override void Move(Vector2 movementVector)
         {
-            if (IsValidHorizontalMovement(movementVector) && 
-                IsValidVerticalMovement(movementVector))
-                movement.Move(transform, inputProcessor.InputVector(movementVector * moveSpeed));
-        }
-
-        private void Awake()
-        {
-            movement = new MoveWithBounds(gameBounds);
-            inputProcessor = new KeyboardMovementProcessor();
+            // Validates Movement
+            movement.Move(transform, inputProcessor.InputVector(movementVector * moveSpeed));
         }
     }
 }

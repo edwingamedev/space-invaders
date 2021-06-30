@@ -10,5 +10,7 @@ namespace EdwinGameDev.Enemies
         WeaponHolder GetWeapons { get; }
         IMovable Movable { get; }
         GameObject gameObject { get; }
+
+        void Revive();
     }
 }

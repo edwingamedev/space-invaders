@@ -23,6 +23,7 @@ namespace EdwinGameDev.Enemies
         public int ScoreValue => scoreValue;        
 
         protected List<IObserver> observers = new List<IObserver>();
+        private bool dead;
 
         private void Awake()
         {
@@ -47,18 +48,30 @@ namespace EdwinGameDev.Enemies
             }
         }
 
-        private void Die()
+        public void Revive()
         {
-            gameObject.SetActive(false);
-
             //Reset health
             health = maxHealth;
 
+            dead = false;
+
+            gameObject.SetActive(true);
+        }
+
+        private void Die()
+        {
+            dead = true;
+
             Notify();
+
+            gameObject.SetActive(false);            
         }
 
         private void OnTriggerEnter2D(Collider2D col)
         {
+            if (dead)
+                return;
+
             if (col.CompareTag(Tags.BULLET))
             {
                 col.GetComponent<IProjectile>().ApplyDamage(this);

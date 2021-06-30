@@ -1,4 +1,5 @@
 ﻿using EdwinGameDev.Enemies;
+using EdwinGameDev.Events;
 using UnityEngine;
 
 namespace EdwinGameDev.Movement
@@ -6,8 +7,8 @@ namespace EdwinGameDev.Movement
     public class ClusterMovement : MonoBehaviour
     {
         [SerializeField] private MovementSettings movementSettings;
-
-        private bool canMove;
+        [SerializeField] private ScriptableEvent<bool> onEnemyTouchedBottom;
+        private bool reachedBorder;
         private int direction = 1;
 
         private void EnemyReachedBorder(IEnemy[,] enemies)
@@ -24,14 +25,15 @@ namespace EdwinGameDev.Movement
 
             float killPercentage = (float)enemiesDead / (float)enemies.Length;
 
-            MoveSideways(enemies,  deltaTime * direction * movementSettings.horizontalSpeed.Evaluate(killPercentage));
+            MoveSideways(enemies, deltaTime * direction * movementSettings.horizontalSpeed.Evaluate(killPercentage));
         }
 
         private void MoveSideways(IEnemy[,] enemies, float deltaTime)
         {
-            //Validate movement
             int rows = enemies.GetLength(0) - 1;
             int columns = enemies.GetLength(1) - 1;
+
+            reachedBorder = false;
 
             for (int j = columns; j >= 0; j--)
             {
@@ -39,32 +41,22 @@ namespace EdwinGameDev.Movement
                 {
                     if (enemies[i, j].gameObject.activeInHierarchy)
                     {
-                        canMove = enemies[i, j].Movable.IsValidHorizontalMovement(deltaTime * Vector2.right);
+                        // Validate movement
+                        reachedBorder = !enemies[i, j].Movable.IsValidHorizontalMovement(deltaTime * Vector2.right);
 
-                        if (!canMove)
+                        if (reachedBorder)
                             break;
+
+                        // Move
+                        enemies[i, j].Movable.Move(deltaTime * Vector2.right);
                     }
                 }
 
-                if (!canMove)
+                if (reachedBorder)
                     break;
             }
 
-            // Move
-            if (canMove)
-            {
-                for (int j = columns; j >= 0; j--)
-                {
-                    for (int i = rows; i >= 0; i--)
-                    {
-                        if (enemies[i, j].gameObject.activeInHierarchy)
-                        {
-                            enemies[i, j].Movable.Move(deltaTime * Vector2.right);
-                        }
-                    }
-                }
-            }
-            else
+            if (reachedBorder)
             {
                 EnemyReachedBorder(enemies);
             }
@@ -80,7 +72,14 @@ namespace EdwinGameDev.Movement
                 for (int i = 0; i < rows; i++)
                 {
                     if (enemies[i, j].gameObject.activeInHierarchy)
+                    {
+                        // Verifies if enemy touched the bottom of the screen
+                        if (!enemies[i, j].Movable.IsValidVerticalMovement(moveSpeed * Vector2.down))
+                            onEnemyTouchedBottom.Notify(true);
+
                         enemies[i, j].Movable.Move(moveSpeed * Vector2.down);
+                    }
+
                 }
             }
         }

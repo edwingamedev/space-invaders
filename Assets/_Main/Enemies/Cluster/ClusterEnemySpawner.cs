@@ -58,7 +58,7 @@ namespace EdwinGameDev.Enemies
                     currentEnemyCluster[i, j].gameObject.transform.position = spacing;
 
                     // Enable GameObject
-                    currentEnemyCluster[i, j].gameObject.SetActive(true);
+                    currentEnemyCluster[i, j].Revive();
                 }
             }
 

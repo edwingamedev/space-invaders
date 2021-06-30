@@ -24,7 +24,7 @@ namespace EdwinGameDev.Movement
 
         private void Awake()
         {
-            movement = new MoveWithBounds(gameBounds);
+            movement = new MoveWithoutBounds(gameBounds);
         }
     }
 }

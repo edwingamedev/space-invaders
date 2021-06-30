@@ -60,8 +60,8 @@ namespace EdwinGameDev.Enemies
 
         public void ReceiveNotification(ISubject subject)
         {
-            enemiesDead++;
-
+             enemiesDead++;
+                        
             OnEnemyDied?.Notify((subject as IEnemy).ScoreValue);
 
             if (enemiesDead >= enemies.Length)

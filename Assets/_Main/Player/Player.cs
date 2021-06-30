@@ -8,7 +8,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace EdwinGameDev.Player
+namespace EdwinGameDev.Players
 {
     public class Player : MonoBehaviour, IDamageable
     {
