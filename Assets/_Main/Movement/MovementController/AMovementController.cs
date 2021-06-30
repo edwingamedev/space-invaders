@@ -14,7 +14,8 @@ namespace EdwinGameDev.Movement
 
         public bool canMove;
 
-        public abstract bool IsValidMovement(Vector2 movementVector);
+        public abstract bool IsValidHorizontalMovement(Vector2 movementVector);
+        public abstract bool IsValidVerticalMovement(Vector2 movementVector);
         public abstract void Move(Vector2 movementVector);
     }
 }

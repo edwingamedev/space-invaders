@@ -13,7 +13,7 @@ namespace EdwinGameDev.Projectile
 
         private void FixedUpdate()
         {
-            if (movementController != null && movementController.IsValidMovement(Vector2.up * Time.deltaTime))
+            if (movementController != null && movementController.IsValidVerticalMovement(Vector2.up * Time.deltaTime))
             {
                 movementController?.Move(Vector2.up * Time.deltaTime);
             }

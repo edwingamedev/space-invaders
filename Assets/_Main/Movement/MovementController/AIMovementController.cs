@@ -6,9 +6,14 @@ namespace EdwinGameDev.Movement
 {
     public class AIMovementController : AMovementController, IMovable
     {
-        public override bool IsValidMovement(Vector2 movementVector)
+        public override bool IsValidVerticalMovement(Vector2 movementVector)
         {
-            return movement.IsValidMovement(transform, movementVector * moveSpeed);
+            return movement.IsValidVerticalMovement(transform, movementVector * moveSpeed);
+        }
+
+        public override bool IsValidHorizontalMovement(Vector2 movementVector)
+        {
+            return movement.IsValidHorizontalMovement(transform, movementVector * moveSpeed);
         }
 
         public override void Move(Vector2 movementVector)

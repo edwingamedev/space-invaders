@@ -39,7 +39,7 @@ namespace EdwinGameDev.Movement
                 {
                     if (enemies[i, j].gameObject.activeInHierarchy)
                     {
-                        canMove = enemies[i, j].Movable.IsValidMovement(deltaTime * Vector2.right);
+                        canMove = enemies[i, j].Movable.IsValidHorizontalMovement(deltaTime * Vector2.right);
 
                         if (!canMove)
                             break;
